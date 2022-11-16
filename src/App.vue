@@ -44,7 +44,7 @@ import { store } from './store';
                   console.log(apiUrl)
               });
             } else {
-              const apiUrl = store.apiURL + this.endPoint + '?category=' + store.category
+              const apiUrl = store.apiURL + this.endPoint + '?category=' + store.category.replace(/ /g, '%20');
               axios.get(apiUrl).then((res) => {
                   store.characterList = res.data;
                   store.loading = false;
