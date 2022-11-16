@@ -3,11 +3,10 @@
     <div class="container d-flex justify-content-between align-items-center">
       <h1 class="my-5">Breacking Bad Api</h1>
       <div class="d-flex">
-        <select v-model="store.category" class="form-select h-50 w-75 mx-3">
+        <select v-model="store.category" @change="getCharacters(store.category)" class="form-select h-50 w-100">
           <option value="">All category</option>
           <option :value="status" v-for="(status, index) in statusOptions" :key="index">{{status}}</option>
         </select>
-        <button class="btn btn-secondary" @click="getCharacters(store.category)">Filter</button>
       </div>
     </div>
     <MainComponent />
